@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 RunTimer();
+
             }
         });
 
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void RunTimer() {
-        new CountDownTimer(1800000, 1800000) {
+        new CountDownTimer(4000, 4000) {
             Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
             public void onTick(long millisUntilFinished) {
@@ -93,5 +95,6 @@ public class MainActivity extends AppCompatActivity {
                 manager.notify(id, mBuilder.build());
             }
         }.start();
+        Toast.makeText(MainActivity.this, "Ajastin käynnistetty", Toast.LENGTH_LONG).show();
     }
 }
